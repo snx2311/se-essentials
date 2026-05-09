@@ -1,0 +1,63 @@
+type ProductId = nat;
+type Product = 
+ record {
+   category: Category;
+   cryptoPrice: opt text;
+   description: text;
+   distanceKm: float64;
+   id: nat;
+   imageUrl: text;
+   inStock: bool;
+   price: nat;
+   rating: nat;
+   reviewCount: nat;
+   tierRequired: MemberTier;
+   title: text;
+ };
+type OrderStatus = 
+ variant {
+   Cancelled;
+   Delivered;
+   Pending;
+   Processing;
+ };
+type OrderId = nat;
+type Order = 
+ record {
+   buyer: principal;
+   createdAt: int;
+   id: nat;
+   paymentMethod: text;
+   productId: nat;
+   quantity: nat;
+   shippingAddress: text;
+   status: OrderStatus;
+ };
+type MemberTier = 
+ variant {
+   Elite;
+   Executive;
+   Standard;
+ };
+type Category = 
+ variant {
+   DesignerGoods;
+   DigitalArt;
+ };
+service : {
+  addToWishlist: (productId: ProductId) -> ();
+  adminAddProduct: (title: text, description: text, category: Category,
+   price: nat, cryptoPrice: opt text, imageUrl: text, inStock: bool,
+   tierRequired: MemberTier, distanceKm: float64) -> (Product);
+  adminUpdateStock: (id: ProductId, inStock: bool) -> ();
+  getMyMembership: () -> (MemberTier) query;
+  getOrder: (id: OrderId) -> (opt Order) query;
+  getProduct: (id: ProductId) -> (opt Product) query;
+  getWishlist: () -> (vec ProductId) query;
+  listMyOrders: () -> (vec Order) query;
+  listProducts: () -> (vec Product) query;
+  placeOrder: (productId: ProductId, quantity: nat, shippingAddress: 
+   text, paymentMethod: text) -> (Order);
+  removeFromWishlist: (productId: ProductId) -> ();
+  upgradeMembership: (newTier: MemberTier) -> ();
+}

@@ -1,0 +1,23 @@
+{
+  "overview": "SE Essentials is a premium monochrome boutique marketplace for rare digital art and designer goods. Features a sophisticated black-and-white aesthetic, tiered membership system, secure checkout, and curated product discovery.",
+  "features": [
+    "2-column product grid with bold pricing, star ratings, and Buy Now buttons",
+    "Tiered membership showcase (Standard, Executive, Elite) with upgrade flow",
+    "Wishlist with heart toggle on every product card",
+    "Secure checkout with Verified Transaction and Encrypted Communication badges",
+    "Location-aware header with search and sticky bottom navigation",
+    "Order history and detailed order tracking",
+    "User profile with Internet Identity login"
+  ],
+  "category": "e-commerce",
+  "tags": [
+    "e-commerce",
+    "marketplace",
+    "monochrome",
+    "premium",
+    "digital-art",
+    "designer-goods",
+    "mobile-first"
+  ],
+  "last_updated": "2026-05-09T05:41:00.219Z"
+}
